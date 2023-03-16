@@ -12,11 +12,11 @@ const Employee = database.define('Employee', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    date_of_birth: {
+    dateOfBirth: {
         type: DataTypes.DATEONLY,
         allowNull: false
     },
-    start_date: {
+    startDate: {
         type: DataTypes.DATEONLY,
         allowNull: false
     },
@@ -32,7 +32,7 @@ const Employee = database.define('Employee', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    zip_code: {
+    zipCode: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
