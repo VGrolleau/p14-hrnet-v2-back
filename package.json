@@ -1,0 +1,24 @@
+{
+  "name": "p14-hrnet-v2-back",
+  "version": "1.0.0",
+  "description": "HRNet project backend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VGrolleau/p14-hrnet-v2-back.git"
+  },
+  "author": "VGrolleau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VGrolleau/p14-hrnet-v2-back/issues"
+  },
+  "homepage": "https://github.com/VGrolleau/p14-hrnet-v2-back#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mariadb": "^3.1.0",
+    "sequelize": "^6.29.3"
+  }
+}
