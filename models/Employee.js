@@ -2,6 +2,7 @@
 const DataTypes = require('sequelize');
 // importing connection database
 const database = require('./database');
+const User = require('./User');
 
 const Employee = database.define('Employee', {
     firstname: {
@@ -41,6 +42,8 @@ const Employee = database.define('Employee', {
         allowNull: false
     }
 });
+
+Employee.belongsTo(User);
 
 // IIFE (Immediately Invoked Function Expression)
 (async () => {
