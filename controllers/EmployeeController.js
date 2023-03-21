@@ -5,7 +5,7 @@ const Employee = require('../models/Employee');
 
 controller.getEmployees = async (req, res) => {
     const response = await Employee.findAll({
-        attributes: { exclude: ['id', 'createdAt', 'updatedAt'] }
+        attributes: { exclude: ['id', 'createdAt', 'updatedAt', 'UserId'] }
     })
         .then(function (data) {
             const res = { success: true, data: data };
@@ -19,7 +19,7 @@ controller.getEmployees = async (req, res) => {
 };
 
 controller.postEmployee = async (req, res) => {
-    console.log(res);
+    console.log(req);
     try {
         const response = await Employee.create({
             firstname: req.body.firstname,
@@ -30,7 +30,8 @@ controller.postEmployee = async (req, res) => {
             city: req.body.city,
             state: req.body.state,
             zipCode: req.body.zipCode,
-            department: req.body.department
+            department: req.body.department,
+            UserId: req.body.userId
         });
         res.json({ success: true, data: response });
     } catch (error) {

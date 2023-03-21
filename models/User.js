@@ -1,7 +1,6 @@
-//import sequelize
 const DataTypes = require('sequelize');
-// importing connection database
 const database = require('./database');
+// const bcrypt = require('bcrypt');
 
 const User = database.define('User', {
     firstname: {
@@ -27,11 +26,12 @@ const User = database.define('User', {
     try {
         await database.authenticate();
         await User.sync({ alter: true });
+        // const hashedPassword = await bcrypt.hash('Pa$$w0rd', 10);
         // await User.create({
         //     firstname: 'Admin',
         //     lastname: 'Admin',
         //     email: 'admin@admin.fr',
-        //     password: 'Pa$$w0rd'
+        //     password: hashedPassword
         // });
         console.log('Connection has been established successfully.');
     } catch (error) {
