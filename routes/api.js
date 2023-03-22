@@ -8,8 +8,10 @@ const userController = require('../controllers/UserController');
 // import middleware
 const auth = require('../middleware/auth');
 
-router.get('/employee/get', auth, employeeController.getEmployees);
-router.post('/employee/create', auth, employeeController.postEmployee);
-router.post('/user/login', userController.login);
+router.post('/login', userController.login);
+router.get('/employee', auth, employeeController.getEmployees);
+router.post('/employee', auth, employeeController.postEmployee);
+router.put('/employee', auth, employeeController.updateEmployee);
+router.delete('/employee', auth, employeeController.deleteEmployee);
 
 module.exports = router;
