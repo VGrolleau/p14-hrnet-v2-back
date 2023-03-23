@@ -9,6 +9,8 @@ const userController = require('../controllers/UserController');
 const auth = require('../middleware/auth');
 
 router.post('/login', userController.login);
+router.get('/user/:userId', userController.getUserNotCo);
+router.get('/user', auth, userController.getUser);
 router.get('/employee', auth, employeeController.getEmployees);
 router.post('/employee', auth, employeeController.postEmployee);
 router.put('/employee', auth, employeeController.updateEmployee);

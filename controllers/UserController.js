@@ -5,6 +5,23 @@ const jwt = require('jsonwebtoken');
 // Import User model
 const User = require('../models/User');
 
+controller.getUserNotCo = async (req, res) => {
+    const response = await User.findOne(
+        {
+            attributes: { exclude: ['createdAt', 'updatedAt'] },
+            where: { id: req.params.userId }
+        })
+        .then(function (data) {
+            const res = { success: true, data: data };
+            return res;
+        })
+        .catch(error => {
+            const res = { success: false, error: error };
+            return res;
+        })
+    res.json(response);
+};
+
 controller.login = async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) {
@@ -33,6 +50,23 @@ controller.login = async (req, res) => {
                 .catch(error => res.status(500).json({ error }));
         })
         .catch(error => res.status(500).json({ error }));
+};
+
+controller.getUser = async (req, res) => {
+    const response = await User.findOne(
+        {
+            attributes: { exclude: ['createdAt', 'updatedAt'] },
+            where: { id: req.user.id }
+        })
+        .then(function (data) {
+            const res = { success: true, data: data };
+            return res;
+        })
+        .catch(error => {
+            const res = { success: false, error: error };
+            return res;
+        })
+    res.json(response);
 };
 
 module.exports = controller;
