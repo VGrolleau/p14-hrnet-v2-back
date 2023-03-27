@@ -32,6 +32,7 @@ controller.login = async (req, res) => {
             if (!user) {
                 return res.status(401).json({ message: 'Incorrect login/password pair' });
             }
+
             bcrypt.compare(password, user.password)
                 .then(valid => {
                     if (!valid) {
@@ -67,6 +68,30 @@ controller.getUser = async (req, res) => {
             return res;
         })
     res.json(response);
+};
+
+controller.updateUser = async (req, res) => {
+    try {
+        let updateValues = {
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            email: req.body.email
+        };
+
+        // check if password was updated
+        if (req.body.password && req.body.password !== "") {
+            const hashedPassword = await bcrypt.hash(req.body.password, 10);
+            updateValues.password = hashedPassword;
+        }
+
+        await User.update(
+            updateValues,
+            { where: { id: req.user.id } }
+        );
+        res.json({ success: true });
+    } catch (error) {
+        res.json({ success: false, error: error });
+    }
 };
 
 module.exports = controller;
