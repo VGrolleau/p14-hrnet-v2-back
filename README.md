@@ -28,7 +28,7 @@ Backend of the [HRnet v2](https://github.com/VGrolleau/p14-hrnet-v2-front/) proj
 ### Installation
 
 - Clone the repository: `git clone https://github.com/VGrolleau/p14-hrnet-v2-back.git`
-- Install the dependencies: `npm install`
+- In project directory, install the dependencies: `npm install`
 - Run the Docker container for the MariaDB database: `docker run --name mariadb -e MYSQL_ROOT_PASSWORD=your_password -d mariadb:tag`
 
 (*"your_password "* will be the root password, it is created at this time)
