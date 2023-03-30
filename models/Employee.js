@@ -50,15 +50,20 @@ Employee.belongsTo(User);
     try {
         await database.authenticate();
         await Employee.sync({ alter: true });
+        /** 
+         * Uncomment the following to allow the creation of a first employee when BDD will be created
+         * and don't forget to recomment after database creating otherwise this employee will be recreated when you'll restart server
+         * But this part is not required if you want an empty employee list to start project
+         */
         // await Employee.create({
-        //     firstname: 'UserFirstname2',
-        //     lastname: 'UserLastname2',
+        //     firstname: 'UserFirstname',
+        //     lastname: 'UserLastname',
         //     date_of_birth: '1991-02-01',
         //     start_date: '2021-02-01',
-        //     street: 'User Street 2',
-        //     city: 'User City 2',
+        //     street: 'User Street',
+        //     city: 'User City',
         //     state: 'Alaska',
-        //     zip_code: '09876',
+        //     zip_code: '12345',
         //     department: 'Marketing'
         // })
         console.log('Connection has been established successfully.');

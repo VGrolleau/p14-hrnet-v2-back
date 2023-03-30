@@ -26,6 +26,11 @@ const User = database.define('User', {
     try {
         await database.authenticate();
         await User.sync({ alter: true });
+        /**
+         * Uncomment the following to allow the creation of a user who can connect to site when database will be created
+         * and don't forget to recomment after database creating otherwise this user will be recreated when you'll restart server
+         * This part is required otherwise you won't be able to connect site
+         */
         // const hashedPassword = await bcrypt.hash('Pa$$w0rd', 10);
         // await User.create({
         //     firstname: 'Admin',
