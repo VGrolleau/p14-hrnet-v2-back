@@ -16,7 +16,7 @@ Backend of the [HRnet v2](https://github.com/VGrolleau/p14-hrnet-v2-front/) proj
 
 ### Prerequisites
 
-* [NodeJS](https://nodejs.org/fr/) (**recommended version**)
+* [NodeJS](https://nodejs.org/en/) (**recommended version**)
 * [npm](https://www.npmjs.com/)
 * [Docker](https://docs.docker.com/get-docker/)
 * [Sequelize](https://sequelize.org/)
