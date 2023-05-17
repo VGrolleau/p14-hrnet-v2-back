@@ -16,6 +16,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use('/api', require('./routes/api'));
 
-let server = app.listen(3001, () => {
+// let server = app.listen(3001, () => {
+let server = app.listen(3306, () => {
     console.log(`Server started on port ${server.address().port}!`);
 });
